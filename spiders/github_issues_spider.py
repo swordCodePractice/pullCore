@@ -4,7 +4,7 @@ import requests
 import pickle
 from pyquery import PyQuery
 from urllib.parse import urljoin, urlparse
-from models.model_issue import Issue
+# from models.model_issue import Issue
 
 
 # 获取html页面文本
@@ -18,6 +18,7 @@ def get_url_page(url):
 
 # 解析issue页，爬取页面的issue列表
 def parse_issue_page(html, url, status):
+    logging.info("哈哈进入")
     # 用于存储所有issue信息
     issue_list_per_page = list()
 

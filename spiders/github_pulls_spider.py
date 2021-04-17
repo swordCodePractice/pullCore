@@ -5,7 +5,7 @@ import json
 import pickle
 from pyquery import PyQuery
 from urllib.parse import urljoin, urlparse
-from models.model_pull import Pull
+# from models.model_pull import Pull
 
 # 获取html页面文本
 def get_url_page(url):

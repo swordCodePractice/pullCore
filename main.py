@@ -2,23 +2,11 @@
 import sys
 from urllib.parse import urlparse
 from spiders import github_issues_spider, github_pulls_spider
-from models.model_issue import Issue
-from models.model_pull import Pull
+# from models.model_issue import Issue
+# from models.model_pull import Pull
 
 github_source_url = [
-            'https://github.com/TarsCloud/Tars',
-            'https://github.com/TarsCloud/TarsDocker',
-            'https://github.com/TarsCloud/TarsWeb',
-            'https://github.com/TarsCloud/TarsCpp',
-            'https://github.com/TarsCloud/TarsJava',
-            'https://github.com/TarsCloud/TarsGo',
-            'https://github.com/TarsCloud/TarsFramework',
-            'https://github.com/TarsCloud/TarsProtocol',
-            'https://github.com/TarsCloud/TarsTup',
-            'https://github.com/TarsCloud/tars-unittest',
-            'https://github.com/TarsCloud/plugins',
-            'https://github.com/Tencent/TSeer',
-            'https://github.com/Tencent/DCache',
+            'https://github.com/webVueBlog/interview-answe'
 ]
 
 def do():
@@ -27,7 +15,6 @@ def do():
         return
 
     param = sys.argv[1]
-
     if "all" == param:
         crawl_and_scrape('issues')
         crawl_and_scrape('pulls')
@@ -63,14 +50,17 @@ Select an option parameter to run:
 
 
 def crawl_and_scrape(part):
+    print(part)
     if 'issues' == part:
+        print("进入啊啊***")
         for source in github_source_url:
             url = source + "/" + part
             print('开始爬取%s list: %s' % (part, url))
             issue_list = github_issues_spider.get_issues(url)
-            print('获取list结束，开始获取%s评论...' % part)
-            issue_detail = github_issues_spider.get_all_issues_detail(issue_list)
-            print('获取%s评论信息完毕' % part)
+            print(issue_list)
+            # print('获取list结束，开始获取%s评论...' % part)
+            # issue_detail = github_issues_spider.get_all_issues_detail(issue_list)
+            # print('获取%s评论信息完毕' % part)
 
     elif 'pulls' == part:
         for source in github_source_url:
